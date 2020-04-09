@@ -81,12 +81,12 @@ public class Ims {
 	/**
 	 * To initialise the database schema. DatabaseConnectionUrl will default to
 	 * localhost.
-	 * 
+	 *
 	 * @param username
 	 * @param password
 	 */
 	public void init(String username, String password) {
-		init("jdbc:mysql://localhost:3306/", username, password, "src/main/resources/sql-schema.sql");
+		init("jdbc:mysql://34.89.21.38:3306/", username, password, "src/main/resources/sql-schema.sql");
 	}
 
 	public String readFile(String fileLocation) {

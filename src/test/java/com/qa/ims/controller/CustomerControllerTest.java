@@ -2,9 +2,6 @@ package com.qa.ims.controller;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -18,19 +15,20 @@ import com.qa.ims.services.CustomerServices;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CustomerControllerTest {
-	
+
 	/**
-	 *  The thing I want to fake functionlity for
+	 * The thing I want to fake functionlity for
 	 */
 	@Mock
 	private CustomerServices customerServices;
-	
+
 	/**
 	 * Spy is used because i want to mock some methods inside the item I'm testing
-	 * InjectMocks uses dependency injection to insert the mock into the customer controller
+	 * InjectMocks uses dependency injection to insert the mock into the customer
+	 * controller
 	 */
-	@Spy
-	@InjectMocks
+	@Spy // for the methods in customerController
+	@InjectMocks // for any classes our customerController calls (in this case customerService)
 	private CustomerController customerController;
 
 //	@Test
@@ -56,7 +54,7 @@ public class CustomerControllerTest {
 //	}
 
 	/**
-	 * 
+	 *
 	 */
 	@Test
 	public void updateTest() {
@@ -68,10 +66,10 @@ public class CustomerControllerTest {
 		Mockito.when(customerServices.update(customer)).thenReturn(customer);
 		assertEquals(customer, customerController.update());
 	}
-	
 
 	/**
-	 * Delete doesn't return anything, so we can just verify that it calls the delete method
+	 * Delete doesn't return anything, so we can just verify that it calls the
+	 * delete method
 	 */
 	@Test
 	public void deleteTest() {
@@ -80,5 +78,5 @@ public class CustomerControllerTest {
 		customerController.delete();
 		Mockito.verify(customerServices, Mockito.times(1)).delete(1L);
 	}
-	
+
 }
