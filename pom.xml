@@ -18,7 +18,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.19</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
 		<dependency>
 			<groupId>log4j</groupId>
@@ -44,10 +44,24 @@
 
 	</dependencies>
 
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<name>Releases</name>
+			<url>http://35.197.209.67/nexus/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus</id>
+			<name>Snapshots</name>
+			<url>http://35.197.209.67/nexus/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<build>
-		<finalName>${project.name}</finalName>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
-			<!-- Creates a jar for the code (does not contain other dependencies which are needed for the project to run out of the box) -->
+			<!-- Creates a jar for the code (does not contain other dependencies which 
+				are needed for the project to run out of the box) -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -62,7 +76,8 @@
 				</configuration>
 			</plugin>
 
-			<!-- Creates a "fat jar" with jar-with-dependencies at the end of the project jar -->
+			<!-- Creates a "fat jar" with jar-with-dependencies at the end of the 
+				project jar -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -86,7 +101,8 @@
 				</executions>
 			</plugin>
 
-			<!-- Plugin for code coverage. Useful as sonarqube integrates well with jacoco -->
+			<!-- Plugin for code coverage. Useful as sonarqube integrates well with 
+				jacoco -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -108,7 +124,7 @@
 				</executions>
 			</plugin>
 
-		<!-- Plugin to send files -->
+			<!-- Plugin to send files -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
@@ -116,5 +132,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>
