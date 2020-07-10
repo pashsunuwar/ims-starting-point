@@ -28,6 +28,7 @@ public class Ims {
 		LOGGER.info("What is your password");
 		String password = Utils.getInput();
 
+		// THIS TAKES SQL USERNAME AND PASSWORD AND CREATES THE CONNECTION
 		init(username, password);
 
 		LOGGER.info("Which entity would you like to use?");
@@ -85,6 +86,8 @@ public class Ims {
 	 * @param username
 	 * @param password
 	 */
+
+	// TIMEZONE - EDIT IT
 	public void init(String username, String password) {
 		init("jdbc:mysql://" + Utils.MYSQL_URL + "/", username, password, "src/main/resources/sql-schema.sql");
 	}
