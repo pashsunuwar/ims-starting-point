@@ -21,6 +21,7 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	private String username;
 	private String password;
 
+	// UPDATE THE MUYSQL URL + timezone
 	public CustomerDaoMysql(String username, String password) {
 		this.jdbcConnectionUrl = "jdbc:mysql://" + Utils.MYSQL_URL + "/ims";
 		this.username = username;
