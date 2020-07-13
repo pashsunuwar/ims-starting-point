@@ -17,6 +17,27 @@ public class Customer {
 		this.surname = surname;
 	}
 
+<<<<<<< Updated upstream
+=======
+	// generated constructor using fields
+	public Customer(Long id, String forename, String surname, String username, String password, String email) {
+		super();
+		this.id = id;
+		this.forename = forename;
+		this.surname = surname;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+	}
+
+	@Override
+	public String toString() {
+		return "id: " + id + " forename: " + forename + " surname: " + surname + " username: " + username
+				+ " password: " + password + " email " + email;
+	}
+
+	// generated getters and setters for username, pass, @.com
+>>>>>>> Stashed changes
 	public Long getId() {
 		return id;
 	}

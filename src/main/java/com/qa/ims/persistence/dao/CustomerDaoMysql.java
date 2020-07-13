@@ -119,8 +119,16 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	public Customer update(Customer customer) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
+<<<<<<< Updated upstream
 			statement.executeUpdate("update customers set first_name ='" + customer.getFirstName() + "', surname ='"
 					+ customer.getSurname() + "' where id =" + customer.getId());
+=======
+			statement.executeUpdate("UPDATE customers SET forename = '" + customer.getForename() + "', surname = '"
+					+ customer.getSurname() + "', username = '" + customer.getUsername() + "', password = '"
+					+ customer.getPassword() + "', email = '" + customer.getEmail() + "' where id ='"
+					+ customer.getId());
+			;
+>>>>>>> Stashed changes
 			return readCustomer(customer.getId());
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
