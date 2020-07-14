@@ -23,7 +23,7 @@ public class CustomerDaoMysql implements Dao<Customer> {
 
 	// UPDATE THE MUYSQL URL + timezone
 	public CustomerDaoMysql(String username, String password) {
-		this.jdbcConnectionUrl = "jdbc:mysql://" + Utils.MYSQL_URL + "/ims";
+		this.jdbcConnectionUrl = "jdbc:mysql://" + Utils.MYSQL_URL + "/ims?serverTimezone=UTC";
 		this.username = username;
 		this.password = password;
 	}
@@ -36,9 +36,12 @@ public class CustomerDaoMysql implements Dao<Customer> {
 
 	Customer customerFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("id");
-		String firstName = resultSet.getString("first_name");
+		String forename = resultSet.getString("forename");
 		String surname = resultSet.getString("surname");
-		return new Customer(id, firstName, surname);
+		String username = resultSet.getString("username");
+		String password = resultSet.getString("password");
+		String email = resultSet.getString("email");
+		return new Customer(id, forename, surname, username, password, email);
 	}
 
 	/**
@@ -85,8 +88,9 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	public Customer create(Customer customer) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("insert into customers(first_name, surname) values('" + customer.getFirstName()
-					+ "','" + customer.getSurname() + "')");
+			statement.executeUpdate("insert into customers(forename, surname, username, password, email) values('"
+					+ customer.getForename() + "','" + customer.getSurname() + "','" + customer.getUsername() + "', '"
+					+ customer.getPassword() + "', '" + customer.getEmail() + "')");
 			return readLatest();
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
@@ -119,16 +123,10 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	public Customer update(Customer customer) {
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement statement = connection.createStatement();) {
-<<<<<<< Updated upstream
-			statement.executeUpdate("update customers set first_name ='" + customer.getFirstName() + "', surname ='"
-					+ customer.getSurname() + "' where id =" + customer.getId());
-=======
 			statement.executeUpdate("UPDATE customers SET forename = '" + customer.getForename() + "', surname = '"
 					+ customer.getSurname() + "', username = '" + customer.getUsername() + "', password = '"
-					+ customer.getPassword() + "', email = '" + customer.getEmail() + "' where id ='"
+					+ customer.getPassword() + "', email = '" + customer.getEmail() + "' where id ="
 					+ customer.getId());
-			;
->>>>>>> Stashed changes
 			return readCustomer(customer.getId());
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
