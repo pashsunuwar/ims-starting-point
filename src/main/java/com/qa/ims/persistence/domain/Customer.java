@@ -23,6 +23,12 @@ public class Customer {
 		this.surname = surname;
 	}
 
+	@Override
+	public String toString() {
+		return "id: " + id + " forename: " + forename + " surname: " + surname + " username: " + username
+				+ " password: " + password + " email " + email;
+	}
+
 	// generated constructor using fields
 	public Customer(Long id, String forename, String surname, String username, String password, String email) {
 		super();
