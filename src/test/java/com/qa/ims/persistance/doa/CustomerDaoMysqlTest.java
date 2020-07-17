@@ -144,7 +144,7 @@ public class CustomerDaoMysqlTest {
 		String id = "3";
 		customerDaoMysql.delete(Long.parseLong(id));
 		List<Customer> customers = new ArrayList<>();
-		customers.add(new Customer(3L, "Bob", "Perry"));
+		customers.add(new Customer(11L, "Bob", "Perry"));
 		assertEquals(customers, customerDaoMysql.readAll());
 	}
 

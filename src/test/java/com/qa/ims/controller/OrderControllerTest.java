@@ -13,7 +13,6 @@ import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.qa.ims.controller.OrderController;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.services.OrderServices;
 
@@ -48,7 +47,13 @@ public class OrderControllerTest {
 
 	@Test
 	public void createTest() {
-
+		Long customer_id = 1L;
+		Long product_id = 1L;
+		Mockito.doReturn(customer_id, product_id).when(orderController).getInput();
+		Order order = new Order(1L, 1L);
+		Order savedOrder = new Order(1L, 1L);
+		Mockito.when(orderServices.create(order)).thenReturn(savedOrder);
+		assertEquals(savedOrder, orderController.create());
 	}
 
 	/**
