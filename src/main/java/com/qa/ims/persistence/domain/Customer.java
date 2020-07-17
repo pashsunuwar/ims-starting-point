@@ -11,8 +11,8 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", forename=" + forename + ", surname=" + surname + ", username=" + username
-				+ ", password=" + password + ", email=" + email + "]";
+		return "id=" + id + ", forename=" + forename + ", surname=" + surname + ", username=" + username + ", password="
+				+ password + ", email=" + email;
 	}
 
 	public Customer(String forename, String surname, String username, String password, String email) {
