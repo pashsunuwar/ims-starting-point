@@ -35,21 +35,13 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	}
 
 	Customer customerFromResultSet(ResultSet resultSet) throws SQLException {
-<<<<<<< HEAD
-		Long id = resultSet.getLong("id");
-=======
 		Long customer_id = resultSet.getLong("customer_id");
->>>>>>> development
 		String forename = resultSet.getString("forename");
 		String surname = resultSet.getString("surname");
 		String username = resultSet.getString("username");
 		String password = resultSet.getString("password");
 		String email = resultSet.getString("email");
-<<<<<<< HEAD
-		return new Customer(id, forename, surname, username, password, email);
-=======
 		return new Customer(customer_id, forename, surname, username, password, email);
->>>>>>> development
 	}
 
 	/**
@@ -133,11 +125,7 @@ public class CustomerDaoMysql implements Dao<Customer> {
 				Statement statement = connection.createStatement();) {
 			statement.executeUpdate("UPDATE customers SET forename = '" + customer.getForename() + "', surname = '"
 					+ customer.getSurname() + "', username = '" + customer.getUsername() + "', password = '"
-<<<<<<< HEAD
-					+ customer.getPassword() + "', email = '" + customer.getEmail() + "' where id ="
-=======
 					+ customer.getPassword() + "', email = '" + customer.getEmail() + "' where customer_id ="
->>>>>>> development
 					+ customer.getId());
 			return readCustomer(customer.getId());
 		} catch (Exception e) {

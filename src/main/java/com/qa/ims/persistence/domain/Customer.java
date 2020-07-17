@@ -9,10 +9,6 @@ public class Customer {
 	private String password;
 	private String email;
 
-<<<<<<< HEAD
-	public Customer(String forename, String surname, String username, String password, String email) {
-		this.forename = forename;
-=======
 	@Override
 	public String toString() {
 		return "id=" + id + ", forename=" + forename + ", surname=" + surname + ", username=" + username + ", password="
@@ -30,33 +26,7 @@ public class Customer {
 	public Customer(Long id, String forename, String surname) {
 		this.id = id;
 		this.forename = forename;
->>>>>>> development
 		this.surname = surname;
-		this.username = username;
-		this.password = password;
-		this.email = email;
-	}
-
-<<<<<<< HEAD
-	public Customer(Long id, String forename, String surname) {
-=======
-	// generated constructor using fields
-	public Customer(Long id, String forename, String surname, String username, String password, String email) {
-		super();
->>>>>>> development
-		this.id = id;
-		this.forename = forename;
-		this.surname = surname;
-		this.username = username;
-		this.password = password;
-		this.email = email;
-	}
-
-<<<<<<< HEAD
-	@Override
-	public String toString() {
-		return "id: " + id + " forename: " + forename + " surname: " + surname + " username: " + username
-				+ " password: " + password + " email " + email;
 	}
 
 	// generated constructor using fields
@@ -70,8 +40,6 @@ public class Customer {
 		this.email = email;
 	}
 
-=======
->>>>>>> development
 	// generated getters and setters for username, pass, @.com
 	public Long getId() {
 		return id;

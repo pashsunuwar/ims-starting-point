@@ -93,8 +93,4 @@ public class CustomerController implements CrudController<Customer> {
 
 	}
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> development
