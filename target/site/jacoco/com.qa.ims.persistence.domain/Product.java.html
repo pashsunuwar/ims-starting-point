@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Product.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PashupatirajSunuwar-20SoftwareJun1</a> &gt; <a href="index.source.html" class="el_package">com.qa.ims.persistence.domain</a> &gt; <span class="el_source">Product.java</span></div><h1>Product.java</h1><pre class="source lang-java linenums">package com.qa.ims.persistence.domain;
+
+public class Product {
+
+	private Long product_id;
+	private String product_title;
+	private double price;
+	private int quantity;
+
+<span class="fc" id="L10">	public Product(String product_title, Double price, int quantity) {</span>
+<span class="fc" id="L11">		this.product_title = product_title;</span>
+<span class="fc" id="L12">		this.price = price;</span>
+<span class="fc" id="L13">		this.quantity = quantity;</span>
+<span class="fc" id="L14">	}</span>
+
+	public Product(Long product_id, String product_title, double price, int quantity) {
+<span class="fc" id="L17">		super();</span>
+<span class="fc" id="L18">		this.product_id = product_id;</span>
+<span class="fc" id="L19">		this.product_title = product_title;</span>
+<span class="fc" id="L20">		this.price = price;</span>
+<span class="fc" id="L21">		this.quantity = quantity;</span>
+<span class="fc" id="L22">	}</span>
+
+	@Override
+	public String toString() {
+<span class="fc" id="L26">		return &quot;Product [id = &quot; + product_id + &quot;, product_title = &quot; + product_title + &quot;, price = £&quot; + price</span>
+				+ &quot;, quantity = &quot; + quantity + &quot;]&quot;;
+	}
+
+	public long getProduct_id() {
+<span class="fc" id="L31">		return product_id;</span>
+	}
+
+	public void setProduct_id(Long product_id) {
+<span class="nc" id="L35">		this.product_id = product_id;</span>
+<span class="nc" id="L36">	}</span>
+
+	public String getProduct_title() {
+<span class="fc" id="L39">		return product_title;</span>
+	}
+
+	public void setProduct_title(String product_title) {
+<span class="fc" id="L43">		this.product_title = product_title;</span>
+<span class="fc" id="L44">	}</span>
+
+	public double getPrice() {
+<span class="fc" id="L47">		return price;</span>
+	}
+
+	public void setPrice(double price) {
+<span class="nc" id="L51">		this.price = price;</span>
+<span class="nc" id="L52">	}</span>
+
+	public int getQuantity() {
+<span class="nc" id="L55">		return quantity;</span>
+	}
+
+	public void setQuantity(int quantity) {
+<span class="nc" id="L59">		this.quantity = quantity;</span>
+<span class="nc" id="L60">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
